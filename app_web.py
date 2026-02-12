@@ -2,9 +2,9 @@ import streamlit as st
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, RTCConfiguration
 
 # Configuração para furar o bloqueio de conexão do celular
-RTC_CONFIGURATION = RTCConfiguration(
-    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-)
+rtc_configuration = {
+    "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+}
 
 st.title("🚗 Monitor de Fadiga do Lincoln")
 
