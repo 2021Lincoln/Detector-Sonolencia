@@ -1,17 +1,11 @@
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer, RTCConfiguration
-
-# Configuração para garantir que o vídeo chegue no celular
-RTC_CONFIG = RTCConfiguration(
-    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
-)
+from streamlit_webrtc import webrtc_streamer
 
 st.title("🚗 Monitor de Fadiga do Lincoln")
-st.write("Se a imagem não aparecer, clique em START e aceite a câmera.")
+st.write("Se a imagem não aparecer, recarregue a página.")
 
-# Versão simplificada que evita o erro de 'import cv2'
+# Versão ultra-simples para evitar o erro de 'AttributeError'
 webrtc_streamer(
-    key="monitor",
-    rtc_configuration=RTC_CONFIG,
+    key="monitor-lincoln", # Mudei a chave para forçar um novo início
     media_stream_constraints={"video": True, "audio": False},
 )
